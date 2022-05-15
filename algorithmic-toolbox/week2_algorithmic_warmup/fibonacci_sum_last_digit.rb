@@ -1,7 +1,5 @@
 #!/usr/bin/env ruby
 # by dthtien
-# https://en.wikipedia.org/wiki/Pisano_period
-
 def number_length(m)
   res = []
   loop do
@@ -29,7 +27,11 @@ def fib_huge(n, m)
   fib(n % number_length(m)) % m
 end
 
+def fib_sum_last_digit(n)
+  (fib_huge((n + 2) % 60, 10) - 1) % 10
+end
+
 if __FILE__ == $0
-  a, b = gets.split.map(&:to_i)
-  puts fib_huge(a, b).to_s
+  n = gets.to_i
+  puts fib_sum_last_digit(n).to_s
 end
