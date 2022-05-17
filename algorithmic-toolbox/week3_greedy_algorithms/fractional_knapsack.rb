@@ -3,12 +3,15 @@
 
 OUTPUT_FORMAT = '%.4f'
 
+def transform_list(weights, values)
+  values.zip(weights).sort do |i1, i2|
+    i1.first / i1.last <=> i2.first / i2.last
+  end.reverse
+end
+
 def get_optimal_value(capacity, weights, values)
   opt_value = 0.0
-  items = values.zip weights
-  items.sort! do |i1, i2|
-    i1.first / i1.last <=> i2.first / i2.last
-  end.reverse!
+  items = transform_list(weights, values)
 
   items.each do |item|
     return opt_value if capacity.zero?
