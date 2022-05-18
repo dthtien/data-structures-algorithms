@@ -9,7 +9,7 @@ def max_dot_product(a, b)
     total += num * b[i]
   end
 
-  res
+  total
 end
 
 if __FILE__ == $0
