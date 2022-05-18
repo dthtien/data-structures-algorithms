@@ -14,7 +14,7 @@ def optimal_points(segments)
     next if !i.zero? && (segments[i].start.zero? || last_seg_num.zero?)
 
     points << last_seg_num
-    segments[i + 1..].each do |x|
+    segments[i + 1..-1].each do |x|
       next if x.start > last_seg_num || last_seg_num > x.end
 
       x.start = 0
