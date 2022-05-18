@@ -18,5 +18,5 @@ if __FILE__ == $0
   a = data[1..n]
   b = data[n + 1..2 * n]
 
-  puts min_dot_product(a, b).to_s
+  puts max_dot_product(a, b).to_s
 end
