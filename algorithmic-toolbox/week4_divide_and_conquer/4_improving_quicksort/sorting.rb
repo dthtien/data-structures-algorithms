@@ -13,6 +13,6 @@ end
 
 if __FILE__ == $0
   n, *a = STDIN.read.split.map(&:to_i)
-  randomized_quick_sort(a)
+  a = randomized_quick_sort(a)
   puts a.join(' ')
 end
