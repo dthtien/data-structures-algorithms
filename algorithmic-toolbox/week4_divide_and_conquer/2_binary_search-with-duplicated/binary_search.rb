@@ -6,7 +6,7 @@ def binary_search(x, a)
   high = a.length - 1
   while low <= high
     mid = (low + high) / 2
-    return mid if a[mid] == x && a[mid - 1] != x
+    return mid if a[mid] == x && (mid.zero? || a[mid - 1] != x)
 
     x <= a[mid] ? high = mid - 1 : low = mid + 1
   end
