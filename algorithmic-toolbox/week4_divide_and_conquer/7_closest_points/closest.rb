@@ -42,9 +42,7 @@ def check_mid(coordinates, d)
 
   coordinates = coordinates.sort_by { |c| c.last }
   coordinates.each_with_index do |coordinate, idx|
-    coordinates.each_with_index do |coordinate2, i|
-      next if idx == i
-
+    coordinates[idx + 1..-1].each_with_index do |coordinate2, i|
       dist = distance(
         [coordinate.first, coordinate2.first],
         [coordinate.last, coordinate2.last]
@@ -61,9 +59,7 @@ def brute_force(x, y)
   min_dist = 10**18
 
   coordinates.each_with_index do |coordinate, idx|
-    coordinates.each_with_index do |coordinate2, idx2|
-      next if idx == idx2
-
+    coordinates[idx + 1..-1].each_with_index do |coordinate2, idx2|
       q = coordinate2
       dist = distance(
         [coordinate.first, coordinate2.first],
