@@ -11,25 +11,69 @@ def distance(x, y)
 end
 
 def minimum_distance(x, y)
-  return distance(x, y) if x.length == 2
+  coordinates = x.zip(y)
+  coordinates = coordinates.sort_by { |coordinate| coordinate.first }
 
-  mid = x.length / 2
-  x_left = x[0...mid]
-  x_right = x[mid..-1]
-  y_left = y[0...mid]
-  y_right = y[mid..-1]
+  smallest_distance(coordinates)
+end
 
-  dl = minimum_distance(x_left, y_left)
-  dr = minimum_distance(x_right, y_right)
+def smallest_distance(coordinates)
+  n = coordinates.size
+  return brute_force(coordinates.map(&:first), coordinates.map(&:last)) if n <= 3
+
+  mid = n / 2
+
+  dl = smallest_distance(coordinates[0..mid - 1])
+  dr = smallest_distance(coordinates[mid..-1])
   d = min(dl, dr)
 
-  y.each_with_index do |num, idx|
-    next if idx < mid
+  mid_coordinates = coordinates.map do |coordinate|
+    next unless (coordinates[mid].first - coordinate.first).abs < d
 
-    d = min(d, distance(x[mid], num) + distance(x[mid], y[idx]))
+    coordinate
+  end.compact
+
+  check_mid(mid_coordinates, d)
+end
+
+def check_mid(coordinates, d)
+  min_dist = d
+  n = coordinates.size
+
+  coordinates = coordinates.sort_by { |c| c.last }
+  coordinates.each_with_index do |coordinate, idx|
+    coordinates.each_with_index do |coordinate2, i|
+      next if idx == i
+
+      dist = distance(
+        [coordinate.first, coordinate2.first],
+        [coordinate.last, coordinate2.last]
+      )
+      min_dist = dist if dist < min_dist
+    end
   end
 
-  d
+  min_dist
+end
+
+def brute_force(x, y)
+  coordinates = x.zip(y)
+  min_dist = 10**18
+
+  coordinates.each_with_index do |coordinate, idx|
+    coordinates.each_with_index do |coordinate2, idx2|
+      next if idx == idx2
+
+      q = coordinate2
+      dist = distance(
+        [coordinate.first, coordinate2.first],
+        [coordinate.last, coordinate2.last]
+      )
+      min_dist = dist if dist < min_dist
+    end
+  end
+
+  min_dist
 end
 
 if __FILE__ == $0

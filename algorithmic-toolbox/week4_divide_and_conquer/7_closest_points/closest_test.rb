@@ -24,6 +24,23 @@ class Closest < Test::Unit::TestCase
     assert_equal(0.0, minimum_distance(*parse_input(text)))
   end
 
+  def test_closest3
+    text = %(
+      4
+      0 0
+      5 6
+      3 4
+      7 2
+    )
+    assert_equal(
+      2.828427125,
+      format(
+        '%.9f',
+        minimum_distance(*parse_input(text))
+      ).to_f
+    )
+  end
+
   private
 
   def parse_input(input)
