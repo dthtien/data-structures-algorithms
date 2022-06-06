@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# by Andronik Ordian
+# by dthtien
 
 def edit_distance(a, b)
   n = a.length + 1
