@@ -6,10 +6,8 @@ def edit_distance(a, b)
   m = b.length + 1
 
   d = Array.new(n, 0) { Array.new(m, 0) }
-  (0...n).zip(0...m).each do |i, j|
-    d[i][0] = i
-    d[0][j] = j
-  end
+  n.times { |i| d[i][0] = i }
+  m.times { |j| d[0][j] = j }
 
   (1...m).each do |j|
     (1...n).each do |i|
@@ -18,9 +16,7 @@ def edit_distance(a, b)
       mismatch = d[i - 1][j - 1] + 1
       match = d[i - 1][j - 1]
 
-      next d[i][j] = [insertion, deletion, match].min if a[i - 1] == b[j - 1]
-
-      d[i][j] = [insertion, deletion, mismatch].min
+      d[i][j] = a[i - 1] == b[j - 1] ? [insertion, deletion, match].min : [insertion, deletion, mismatch].min
     end
   end
 
