@@ -3,7 +3,7 @@
 require_relative './partition3'
 require 'test/unit'
 
-class Knapsack < Test::Unit::TestCase
+class Partition < Test::Unit::TestCase
   def test_partition
     text = %(
       4

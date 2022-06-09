@@ -4,6 +4,7 @@
 def partition3(list)
   total = list.sum
   return 0 if list.empty? || list.size == 1 || !(total % 3).zero?
+
   n = list.size
   count = 0
   w = total / 3
