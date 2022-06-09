@@ -3,9 +3,10 @@
 
 def partition3(list)
   total = list.sum
-  return 0 if list.empty? || list.size == 1 || !(total % 3).zero?
-
   n = list.size
+
+  return 0 if n < 3 || !(total % 3).zero?
+
   count = 0
   w = total / 3
   d = Array.new(w + 1, 0) { Array.new(n + 1, 0) }

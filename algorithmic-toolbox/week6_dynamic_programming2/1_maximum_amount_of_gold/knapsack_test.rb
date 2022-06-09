@@ -21,6 +21,15 @@ class Knapsack < Test::Unit::TestCase
     assert_equal(19, optimal_weight(*parse_input(text)))
   end
 
+  def test_optimal_weight3
+    text = %{
+      10 5
+      3 5 3 3 5
+    }
+
+    assert_equal(10, optimal_weight(*parse_input(text)))
+  end
+
   private
 
   def parse_input(text)

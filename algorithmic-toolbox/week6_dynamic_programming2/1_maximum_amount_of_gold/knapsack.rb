@@ -1,24 +1,23 @@
 #!/usr/bin/env ruby
-# by Andronik Ordian
+# by dthtien
 
 def optimal_weight(w, weights)
-  # write your code here
-  total_weight = weights.sum
-  return total_weight if total_weight <= w
-
   n = weights.size
-  available_weights = [0]
-  (1...w).each do |num|
-    available_weights << num
-    (1...n).each do |i|
-      next if weights[i] > num
-
-      val = available_weights[num - weights[i]] + available_weights[i]
-      available_weights[num] = [available_weights[num], val].max
+  res = Array.new(n + 1, 0) { Array.new(w + 1, 0) }
+  (n + 1).times do |i|
+    (w + 1).times do |j|
+      if i.zero? || j.zero?
+        res[i][j] = 0
+      elsif weights[i - 1] <= j
+        res[i][j] = [res[i - 1][j], res[i - 1][j - weights[i - 1]] + weights[i - 1]].max
+      else
+        res[i][j] = res[i - 1][j]
+      end
     end
   end
 
-  available_weights[w - 1]
+  puts res.inspect
+  res[n][w]
 end
 
 if __FILE__ == $0
