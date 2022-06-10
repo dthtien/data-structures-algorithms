@@ -9,7 +9,7 @@ class PlacingParenttheses < Test::Unit::TestCase
     assert_equal(200, maximum_value(*parse_input(text)))
   end
 
-  def test_partition
+  def test_partition2
     text = '1+2-3*4-5'.split('')
     assert_equal(6, maximum_value(*parse_input(text)))
   end

@@ -16,7 +16,6 @@ def optimal_weight(w, weights)
     end
   end
 
-  puts res.inspect
   res[n][w]
 end
 

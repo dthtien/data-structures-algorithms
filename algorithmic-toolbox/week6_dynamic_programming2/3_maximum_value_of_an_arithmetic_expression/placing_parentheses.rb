@@ -40,8 +40,6 @@ def maximum_value(numbers, operations)
     m[i][i] = numbers[i]
     ml[i][i] = numbers[i]
   end
-  puts m.inspect
-  puts ml.inspect
 
   (1...n).each do |s|
     (0...n - s).each do |i|
