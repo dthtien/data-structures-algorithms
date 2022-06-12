@@ -67,6 +67,6 @@ def parse_input(input)
 end
 
 if __FILE__ == $0
-  s = gets.chomp.bytes.to_a
+  s = gets.strip.split('')
   puts maximum_value(*parse_input(s))
 end
