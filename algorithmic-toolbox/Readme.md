@@ -2,6 +2,8 @@
   - [week2_algorithmic_warmup](week2_algorithmic_warmup/week2_algorithmic_warmup.pdf)
   - [week3_greedy_algorithms](week3_greedy_algorithms/week3_greedy_algorithms.pdf)
   - [week4_divide_and_conquer](week4_divide_and_conquer/week4_divide_and_conquer.pdf)
+  - [week5_dynamic_programming1](week5_dynamic_programming1/week5_dynamic_programming1.pdf)
+  - [week6_dynamic_programming2](week6_dynamic_programming2/week5_dynamic_programming1.pdf)
 
 ## Asymptotic notation:
 The key idea is that low-level run time analysis can result in confounding factors that multiply runtimes by a (large) constant, so we seek to measure runtime in a way that ignores constant multiples.
