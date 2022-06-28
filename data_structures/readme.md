@@ -197,13 +197,13 @@ array_addr + element_size ( i - first_index )
   - Can be implemented with either a linked list(**with tails pointer**) or an array
     - Linked list
       #### Enqueue:
-      ![](data_structures/images/enqueue-link-list.png)
+      ![](images/enqueue-link-list.png)
       #### Dequeue
-      ![](data_structures/images/dequeue-link-list.png)
+      ![](images/dequeue-link-list.png)
     - Array
       #### Enqueue
-      ![](data_structures/images/array-enqueue.png)
+      ![](images/array-enqueue.png)
       #### Dequeue
-      ![](data_structures/images/array-dequeue.png)
+      ![](images/array-dequeue.png)
     - Note: Array need to set an emply pointer when the queues not empty to distinguish empty queues
   - Each queue operation is O(1): Enqueue, Dequeue, Empty
