@@ -160,3 +160,31 @@ array_addr + element_size ( i - first_index )
   - O(n) time to ifind arbitrary element
   - Lidst elements need not be contiguous.
   - With doubly linked list, constant time to insert bettween nodes or remove a node.
+
+## Stacks
+- Abstract data type with the following operations
+  - Push(Key): Adds key to collection
+  - Key Top(): return most recently-added key
+  - Key Pop(): Removes and returns most recently-added key
+  - Boolean Empty(): Are there any elements?
+  - Stack can be implemented with either an array or a linked list
+  - Each stack operation is O(1): Push, Pop, Top, Empty
+  - Stacks are ocassionaly known as LIFO queues
+
+  ### Example:
+
+  ```ruby
+  def balanced?(str)
+    stack = Stack.new
+    str.each do |char|
+      next stack.push(char) if ['(', '['].include?(char)
+
+      return false if stack.empty?
+
+      top = stack.pop
+      return false if top == '[' && char != ']' || top == '(' && char != ')'
+    end
+
+    stack.empty?
+  end
+  ```
