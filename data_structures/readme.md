@@ -188,3 +188,22 @@ array_addr + element_size ( i - first_index )
     stack.empty?
   end
   ```
+## Queue
+  - Abstract data type with the following operations:
+    - Enqueue(Key): adds key to collection
+    - Key Dequeue(): removes and returns least recently-added key
+    - Boolean Empty(): Are there any elements?
+    - FIFO - First in first out
+  - Can be implemented with either a linked list(**with tails pointer**) or an array
+    - Linked list
+      #### Enqueue:
+      ![](data_structures/images/enqueue-link-list.png)
+      #### Dequeue
+      ![](data_structures/images/dequeue-link-list.png)
+    - Array
+      #### Enqueue
+      ![](data_structures/images/array-enqueue.png)
+      #### Dequeue
+      ![](data_structures/images/array-dequeue.png)
+    - Note: Array need to set an emply pointer when the queues not empty to distinguish empty queues
+  - Each queue operation is O(1): Enqueue, Dequeue, Empty
