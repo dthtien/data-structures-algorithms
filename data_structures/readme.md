@@ -199,7 +199,7 @@ array_addr + element_size ( i - first_index )
       #### Enqueue:
       ![](images/enqueue-link-list.png)
       #### Dequeue
-      ![](images/dequeue-link-list.png)
+      ![](images/dequeue-linked-list.png)
     - Array
       #### Enqueue
       ![](images/array-enqueue.png)
