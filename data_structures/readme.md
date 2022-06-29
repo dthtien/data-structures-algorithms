@@ -207,3 +207,59 @@ array_addr + element_size ( i - first_index )
       ![](images/array-dequeue.png)
     - Note: Array need to set an emply pointer when the queues not empty to distinguish empty queues
   - Each queue operation is O(1): Enqueue, Dequeue, Empty
+
+## Tree
+
+A tree is:
+  - Empty or
+  - a node with a key and a list of child trees
+### Example: Abstract syntax tree for code
+
+``ruby
+  while x < 0
+    x += 2
+    foo(x)
+  end
+```
+
+                          while
+                      <-         ->
+                compare op: <       block
+              <-      ->            <-  ->
+          var: x    const: 0    assign    procedure call
+                                <- ->                    <-       ->
+                            var: x  binop: +          var: foo | var: x
+                                    <-  ->
+                              var: 2     const: 2
+### Terminology
+  - Node contains
+    - key
+    - children: list of children nodes
+    - parent - optional
+
+  - Binary tree: node containts
+    - Key
+    - Left
+    - Right
+    - parent - optional
+
+### Methods
+
+    ```ruby
+    # calculate how hight of a tree
+    def height(tree)
+      return 0  if tree.nil?
+
+      1 + [height(tree.left), height(tree.right)]
+    end
+
+
+    # calculate how many nodes in a tree
+    def size(tree)
+      return 0  if tree.nil?
+
+      1 + size(tree.left) + size(tree.right)]
+    end
+
+    ```
+
