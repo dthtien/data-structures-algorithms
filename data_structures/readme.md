@@ -246,7 +246,7 @@ A tree is:
 ### Methods
 
     ```ruby
-    # calculate how hight of a tree
+    # calculate how hight a tree is
     def height(tree)
       return 0  if tree.nil?
 
@@ -263,3 +263,61 @@ A tree is:
 
     ```
 
+
+### Tree traversal
+Often we want to visit the nodes of a tree in a particular order.
+For example, print the nodes of the tree.
+  - Depth first: we completely traverse one sub-tree before exploring a sibling sub-tree
+  - Breadth first: We traverse all nodes at one level before progressing to the next level
+
+#### Code example
+- Depth first
+  ```ruby
+  def in_order_traversal(tree)
+    return if tree.nil?
+
+    in_order_traversal(tree.left)
+    puts tree.key
+    in_order_traversal(tree.right)
+  end
+
+  def pre_order_traversal(tree)
+    return if tree.nil?
+
+    puts tree.key
+    pre_order_traversal(tree.left)
+    pre_order_traversal(tree.right)
+  end
+
+  def post_order_traversal(tree)
+    return if tree.nil?
+
+    post_order_traversal(tree.left)
+    post_order_traversal(tree.right)
+    puts tree.key
+  end
+  ```
+- Breadth first
+```
+def level_traversal(tree)
+  return if tree.nil
+
+  q = Queue.new
+  q.enqueue(tree)
+
+  while !q.empty?
+    node = q.dequeue
+    puts node
+    if !node.left.nil?
+      q.dequeue(node.left)
+    if !node.right.nil?
+      q.enqueue(node.right)
+  end
+end
+```
+### Summary
+- Tree are used for lots of different things
+- Trees have a key and children
+- Tree walks: DFS (pre-order, in order, post-order) and BFS
+- when working with a tree, recursive algorithms are common
+- In CS, tree grow down!
